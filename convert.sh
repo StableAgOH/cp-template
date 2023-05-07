@@ -6,7 +6,11 @@ for mdfile in $mdfiles; do
     echo "Converting $base..."
     pandoc -s $mdfile -o pdf/$base.pdf --pdf-engine=xelatex --include-in-header=pagenumber.tex \
         -V CJKmainfont="Noto Sans CJK SC" \
-        -V geometry:margin=2cm \
+        -V fontsize=10pt \
+        -V geometry:top=1cm \
+        -V geometry:bottom=1cm \
+        -V geometry:left=1.5cm \
+        -V geometry:right=1.5cm \
         -V title=$base
 done
 sleep 1
